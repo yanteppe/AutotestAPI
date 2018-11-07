@@ -29,7 +29,8 @@ def sendRequest(context):
 
 @then("validation response schema")
 def validationSchema(context):
-    validate(sendRequest(context=sendRequest), correct_schema)
+    actual_json = sendRequest(context)
+    validate(actual_json, correct_schema)
 
 
 @then("get all showcases types")

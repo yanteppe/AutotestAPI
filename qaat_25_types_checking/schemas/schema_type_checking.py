@@ -1,17 +1,16 @@
 channels = {
     "additionalProperties": False,
     "properties": {
-        "id": {"type": "string"},
+        "id": {"type": "integer"},
         "type": {"type": "string"},
         "urn": {"type": "string"},
         "title": {"type": "string"},
         "adult": {
             "additionalProperties": False,
             "properties": {
-                "title": {"type": "string"},
                 "type": {"type": "string"}
             },
-            "required": ["title", "type"],
+            "required": ["type"],
             "type": "object"
         },
         "resources": {
@@ -41,7 +40,7 @@ channels = {
             "required": ["backgroundColor"],
             "type": "object"
         },
-        "offersUrn": "null",
+        "offersUrn": {"type": "null"},
         "available": {
             "additionalProperties": False,
             "properties": {
@@ -65,7 +64,7 @@ channels = {
                 "type": {"type": "string"}
             },
             "required": ["type"],
-            "type": "object,"
+            "type": "object"
         },
         "services": {
             "additionalItems": False,
@@ -80,7 +79,6 @@ channels = {
                         },
                         "required": ["type"],
                         "type": "object"
-
                     }
 
                 },
@@ -117,8 +115,7 @@ channels = {
                                                 "adult": {
                                                     "additionalProperties": False,
                                                     "properties": {
-                                                        "type": {
-                                                            "type": "string"}
+                                                        "type": {"type": "string"}
                                                     },
                                                     "required": ["type"],
                                                     "type": "object"
@@ -126,8 +123,7 @@ channels = {
                                                 "rating": {
                                                     "additionalProperties": False,
                                                     "properties": {
-                                                        "type": {
-                                                            "type": "string"}
+                                                        "type": {"type": "string"}
                                                     },
                                                     "required": ["type"],
                                                     "type": "object"
@@ -137,14 +133,15 @@ channels = {
                                                     "items": {
                                                         "additionalProperties": False,
                                                         "properties": {
-                                                            "id": {
-                                                                "type": "integer"},
-                                                            "title": {
-                                                                "type": "string"},
+                                                            "id": {"type": "integer"},
+                                                            "title": {"type": "string"},
                                                             "available": {
                                                                 "additionalProperties": False,
-                                                                "type": {"type",
-                                                                         "string"}
+                                                                "properties": {
+                                                                    "type": {"type": "string"}
+                                                                },
+                                                                "required": ["type"],
+                                                                "type": "object"
                                                             },
                                                             "quality": {
                                                                 "additionalProperties": False,
@@ -152,23 +149,20 @@ channels = {
                                                                     "type": {"type": "string"}
                                                                 },
                                                                 "required": ["type"],
-                                                                "type": "object,"
+                                                                "type": "object"
                                                             },
                                                             "services": {
                                                                 "additionalItems": False,
                                                                 "items": {
                                                                     "additionalProperties": False,
                                                                     "properties": {
-                                                                        "type": {
-                                                                            "type": "string"},
+                                                                        "type": {"type": "string"},
                                                                         "state": {
                                                                             "additionalProperties": False,
                                                                             "properties": {
-                                                                                "type": {
-                                                                                    "type": "string"}
+                                                                                "type": {"type": "string"}
                                                                             },
-                                                                            "required": [
-                                                                                "type"],
+                                                                            "required": ["type"],
                                                                             "type": "object"
                                                                         }
                                                                     },
@@ -185,35 +179,23 @@ channels = {
                                                                 "items": {
                                                                     "additionalProperties": False,
                                                                     "properties": {
-                                                                        "id": {
-                                                                            "type": "integer"},
-                                                                        "type": {
-                                                                            "type": "string"},
-                                                                        "drm": {
-                                                                            "type": "string"},
-                                                                        "evenKey": {
-                                                                            "type": "string"},
-                                                                        "oddKey": {
-                                                                            "type": "string"},
-                                                                        "source": {
-                                                                            "type": "string"}
+                                                                        "id": {"type": "integer"},
+                                                                        "type": {"type": "string"},
+                                                                        "drm": {"type": "string"},
+                                                                        "evenKey": {"type": "string"},
+                                                                        "oddKey": {"type": "string"},
+                                                                        "source": {"type": "string"}
                                                                     },
-                                                                    "required": [
-                                                                        "id",
-                                                                        "type"],
+                                                                    "required": ["id", "type"],
                                                                     "type": "object"
                                                                 },
                                                                 "type": "array"
                                                             },
-                                                            "urn": {
-                                                                "type": "string"}
+                                                            "urn": {"type": "string"}
                                                         },
                                                         "required": [
-                                                            "id", "title",
-                                                            "available",
-                                                            "quality",
-                                                            "services",
-                                                            "resources", "urn"
+                                                            "id", "title", "available",
+                                                            "quality", "services", "resources", "urn"
                                                         ],
                                                         "type": "object"
                                                     },
@@ -222,7 +204,7 @@ channels = {
                                             },
                                             "required": [
                                                 "id", "title",
-                                                "adult", "reting", "locals"
+                                                "adult", "rating", "locals"
                                             ],
                                             "type": "object",
                                         },
@@ -244,23 +226,19 @@ channels = {
                                                     "items": {
                                                         "additionalProperties": False,
                                                         "properties": {
-                                                            "id": {
-                                                                "type": "integer"},
-                                                            "type": {
-                                                                "type": "string"}
+                                                            "id": {"type": "integer"},
+                                                            "type": {"type": "string"}
                                                         },
-                                                        "required": [
-                                                            "id",
-                                                            "type"],
+                                                        "required": ["id", "type"],
                                                         "type": "object",
                                                     },
                                                     "type": "array"
                                                 },
-                                                "releaseAt": {"type", "null"},
+                                                "releasedAt": {"type": ["null", "string"]},
                                                 "rating": {
                                                     "additionalProperties": False,
                                                     "properties": {
-                                                        "type": {"type", "string"}
+                                                        "type": {"type": "string"}
                                                     },
                                                     "required": ["type"],
                                                     "type": "object",
@@ -268,19 +246,19 @@ channels = {
                                                 "favorite": {
                                                     "additionalProperties": False,
                                                     "properties": {
-                                                        "type": {"type", "string"}
+                                                        "type": {"type": "string"}
                                                     },
                                                     "required": ["type"],
                                                     "type": "object",
                                                 },
-                                                "personsUrn": {"type", "string"},
+                                                "personsUrn": {"type": ["null", "string"]},
                                                 "categories": {
                                                     "additionalItems": False,
                                                     "items": {
                                                         "additionalProperties": False,
                                                         "properties": {
                                                             "id": {"type": "integer"},
-                                                            "title": {"type", "string"}
+                                                            "title": {"type": "string"}
                                                         },
                                                         "required": ["id", "title"],
                                                         "type": "object",
@@ -291,45 +269,21 @@ channels = {
                                                 "duration": {"type": "integer"},
                                                 "episodeNumber": {"type": "integer"},
                                                 "seasonNumber": {"type": "integer"},
-                                                "countries": {
-                                                    "additionalItems": False,
-                                                    "items": {
-                                                        "additionalProperties": False,
-                                                        "properties": {
-                                                            "id": {"type": "integer"},
-                                                            "title": {"type", "string"}
-                                                        },
-                                                        "required": ["id", "title"],
-                                                        "type": "object",
-                                                    },
-                                                    "type": ["null", "array"],
-                                                },
+                                                "countries": {"type": "array"},
                                                 "genres": {
                                                     "additionalItems": False,
                                                     "items": {
                                                         "additionalProperties": False,
                                                         "properties": {
                                                             "id": {"type": "integer"},
-                                                            "title": {"type", "string"}
+                                                            "title": {"type": "string"}
                                                         },
                                                         "required": ["id", "title"],
                                                         "type": "object",
                                                     },
                                                     "type": "array",
                                                 },
-                                                "awards": {
-                                                    "additionalItems": False,
-                                                    "items": {
-                                                        "additionalProperties": False,
-                                                        "properties": {
-                                                            "id": {"type": "integer"},
-                                                            "title": {"type", "string"}
-                                                        },
-                                                        "required": ["id", "title"],
-                                                        "type": "object",
-                                                    },
-                                                    "type": ["null", "array"],
-                                                },
+                                                "awards": {"type": "array"},
                                                 "estimate": {
                                                     "additionalProperties": False,
                                                     "properties": {
@@ -341,26 +295,28 @@ channels = {
                                                 "vod": {
                                                     "additionalProperties": False,
                                                     "properties": {
-                                                        "id": {"type", "integer"},
-                                                        "type": {"type", "null"},
-                                                        "urn": {"type", "null"},
+                                                        "id": {"type": "integer"},
+                                                        "type": {"type": "null"},
+                                                        "urn": {"type": "null"},
                                                         "available": {
                                                             "additionalProperties": False,
                                                             "properties": {
-                                                                "type": {"type", "string"}
+                                                                "type": {"type": "string"}
                                                             },
                                                             "required": ["type"],
                                                             "type": "object",
                                                         },
                                                     },
-                                                    "required": [
-                                                        "id", "type",
-                                                        "urn", "available"
-                                                    ],
+                                                    "required": ["id", "type", "urn"],
                                                     "type": "object",
                                                 },
                                             },
-                                            "required": [],  # <<<<<<<<<<<<
+                                            "required": [
+                                                "id", "type", "urn", "title", "adult",
+                                                "resources", "releasedAt", "rating", "favorite", "personsUrn",
+                                                "categories", "description", "duration", "episodeNumber",
+                                                "seasonNumber", "countries", "genres", "awards", "estimate", "vod"
+                                            ],
                                             "type": "object",
 
                                         },
@@ -379,12 +335,11 @@ channels = {
                                         "global", "data", "available"
                                     ],
                                     "type": "object"
-
                                 },
                                 "type": "array"
                             },
                             "total": {"type": "integer"},
-                            "links": {},  # !
+                            "links": {"type": "array"},
                             "type": {"type": "string"},
                             "urn": {"type": "string"},
                             "title": {"type": "string"},
@@ -402,12 +357,7 @@ channels = {
 
                 },
                 "total": {"type": "integer"},
-                "links": {
-                    "additionalItems": False,
-                    "items": {},
-                    "required": ["null", "array"],
-                    "type": "array",
-                },
+                "links": {"type": "array"},
                 "type": {"type": "string"},
                 "urn": {"type": "string"},
                 "title": {"type": "string"},
@@ -416,11 +366,9 @@ channels = {
                     "items": {
                         "additionalProperties": False,
                         "properties": {
-                            {
-                                "title": {"type": "string"},
-                                "urn": {"type": "string"},
-                                "type": {"type": "string"},
-                            },
+                            "title": {"type": "string"},
+                            "urn": {"type": "string"},
+                            "type": {"type": "string"}
                         },
                         "required": ["title", "urn", "type"],
                         "type": "object"
@@ -458,24 +406,24 @@ channels = {
 catchup = {
     "additionalProperties": False,
     "properties": {
-        "id": {"type", "integer"},
-        "type": {"type", "string"},
-        "urn": {"type", "string"},
-        "startAt": {"type", "string"},
-        "endAt": {"type", "string"},
-        "position": {"type", "integer"},
+        "id": {"type": "integer"},
+        "type": {"type": "string"},
+        "urn": {"type": "string"},
+        "startAt": {"type": "string"},
+        "endAt": {"type": "string"},
+        "position": {"type": "integer"},
         "global": {
             "additionalProperties": False,
             "properties": {
-                "id": {"type", "integer"},
-                "title": {"type", "string"},
+                "id": {"type": "integer"},
+                "title": {"type": "string"},
                 "adult": {
                     "additionalProperties": False,
                     "properties": {
                         "type": {"type": "string"}
                     },
                     "required": ["type"],
-                    "type": "object",
+                    "type": "object"
                 },
                 "rating": {
                     "additionalProperties": False,
@@ -483,7 +431,7 @@ catchup = {
                         "type": {"type": "string"}
                     },
                     "required": ["type"],
-                    "type": "object",
+                    "type": "object"
                 },
                 "locals": {
                     "additionalItems": False,
@@ -498,7 +446,7 @@ catchup = {
                                     "type": {"type": "string"}
                                 },
                                 "required": ["type"],
-                                "type": "object",
+                                "type": "object"
                             },
                             "quality": {
                                 "additionalProperties": False,
@@ -506,7 +454,7 @@ catchup = {
                                     "type": {"type": "string"}
                                 },
                                 "required": ["type"],
-                                "type": "object",
+                                "type": "object"
                             },
                             "services": {
                                 "additionalItems": False,
@@ -521,9 +469,7 @@ catchup = {
                                             },
                                             "required": ["type"],
                                             "type": "object"
-
                                         }
-
                                     },
                                     "required": ["type", "state"],
                                     "type": "object"
@@ -551,10 +497,15 @@ catchup = {
                             "urn": {"type": "string"}
                         },
                         "required": [
-                            "id", "title", "available",
-                            "quality", "services", "resources", "urn"
+                            "id",
+                            "title",
+                            "available",
+                            "quality",
+                            "services",
+                            "resources",
+                            "urn"
                         ],
-                        "type": "object",
+                        "type": "object"
                     },
                     "type": "array",
                 },
@@ -563,7 +514,7 @@ catchup = {
                 "id", "title",
                 "adult", "rating", "locals"
             ],
-            "type": "object",
+            "type": "object"
         },
         "data": {
             "additionalProperties": False,
@@ -582,18 +533,18 @@ catchup = {
                             "type": {"type": "string"}
                         },
                         "required": ["id", "type"],
-                        "type": "object",
+                        "type": "object"
                     },
                     "type": "array",
                 },
-                "releasedAt": {"type", "null"},
+                "releasedAt": {"type": ["null", "string"]},
                 "rating": {
                     "additionalProperties": False,
                     "properties": {
                         "type": {"type": "string"}
                     },
                     "required": ["type"],
-                    "type": "object",
+                    "type": "object"
                 },
                 "favorite": {
                     "additionalProperties": False,
@@ -601,10 +552,10 @@ catchup = {
                         "type": {"type": "string"}
                     },
                     "required": ["type"],
-                    "type": "object",
+                    "type": "object"
                 },
-                "personsUrn": {"type": "string"},
-                "categories": {  # <<< array
+                "personsUrn": {"type": ["null", "string"]},
+                "categories": {
                     "additionalItems": False,
                     "items": {
                         "additionalProperties": False,
@@ -612,82 +563,66 @@ catchup = {
                             "id": {"type": "integer"},
                             "title": {"type": "string"}
                         },
-                        "required": ["id", "type"],
-                        "type": "object",
+                        "required": ["id", "title"],
+                        "type": "object"
                     },
                     "type": "array",
                 },
                 "description": {"type": "string"},
                 "duration": {"type": "integer"},
                 "episodeNumber": {"type": "integer"},
-                "seasonNumber": {"type", "integer"},
-                "countries": {
-                    "additionalItems": False,
+                "seasonNumber": {"type": "integer"},
+                "countries": {"type": "array"},
+                "genres": {
+                    "addittionalItems": False,
                     "items": {
                         "additionalProperties": False,
                         "properties": {
                             "id": {"type": "integer"},
-                            "title": {"type", "string"}
+                            "title": {"title": "string"}
                         },
                         "required": ["id", "title"],
-                        "type": "object",
+                        "type": "object"
                     },
-                    "type": ["null", "array"],
                 },
-                "geners": {
-                    "additionalProperties": False,
-                    "properties": {
-                        "id": {"type": "integer"},
-                        "title": {"title": "string"}
-                    },
-                    "required": ["id", "title"],
-                    "type": "object",
-                },
-                "awards": {
-                    "additionalItems": False,
-                    "items": {
-                        "additionalProperties": False,
-                        "properties": {
-                            "id": {"type": "integer"},
-                            "title": {"type", "string"}
-                        },
-                        "required": ["id", "title"],
-                        "type": "object",
-                    },
-                    "type": ["null", "array"],
-                },
+                "awards": {"type": "array"},
                 "estimate": {
                     "additionalProperties": False,
                     "properties": {
                         "type": {"type": "string"}
                     },
                     "required": ["type"],
-                    "type": "object",
+                    "type": "object"
                 },
                 "vod": {
                     "additionalProperties": False,
                     "properties": {
-                        "id": {"type", "integer"},
-                        "type": {"type", "null"},
-                        "urn": {"type", "null"},
+                        "id": {"type": "integer"},
+                        "type": {"type": "null"},
+                        "urn": {"type": "null"},
                         "available": {
                             "additionalProperties": False,
                             "properties": {
-                                "type": {"type", "string"}
+                                "type": {"type": "string"}
                             },
                             "required": ["type"],
-                            "type": "object",
+                            "type": "object"
                         },
                     },
                     "required": [
                         "id", "type",
                         "urn", "available"
                     ],
-                    "type": "object",
+                    "type": "object"
                 },
             },
-            "required": ["", ""],
-            "type": "object",
+            "required": [
+                "id", "type", "urn", "title", "adult",
+                "resources", "releasedAt", "rating", "favorite", "personsUrn",
+                "categories", "description", "duration", "episodeNumber", "seasonNumber",
+                "countries", "genres", "awards", "estimate", "vod"
+            ],
+            "type": "object"
         },
         "available": {
             "additionalProperties": False,
@@ -695,20 +630,17 @@ catchup = {
                 "type": {"type": "string"}
             },
             "required": ["type"],
-            "type": "object",
-
-        },
-
+            "type": "object"
+        }
     },
     "required": [
         "id", "type", "urn",
         "startAt", "endAt", "position",
         "global", "data", "available"
     ],
-    "type": "object",
+    "type": "object"
 }
 
-# Дописать offer / stocks
 channel_packages = {
     "additionalProperties": False,
     "properties": {
@@ -809,13 +741,8 @@ channel_packages = {
                         "resources": {
                             "additionalItems": False,
                             "items": {
-                                "additionalProperties": False,
-                                "properties": {
-                                    "id": {"type": "integer"},
-                                    "type": {"type": "string"},
-                                },
-                                "required": ["id", "type"],
-                                "type": "object"
+                                "additionalItems": False,
+                                "type": "array"
                             },
                             "type": "array"
                         },
@@ -868,12 +795,15 @@ channel_packages = {
                     "type": "array",
                 },
                 "quality": {
-                    "additionalProperties": False,
-                    "properties": {
-                        "type": {"type": "string"}
-                    },
-                    "required": ["type"],
-                    "type": "object,"
+                    "additionalItems": False,
+                    "items": {
+                        "additionalProperties": False,
+                        "properties": {
+                            "type": {"type": ["string", "null"]}
+                        },
+                        "required": ["type"],
+                        "type": "object"
+                    }
                 },
                 "store": {
                     "additionalProperties": False,
@@ -881,7 +811,7 @@ channel_packages = {
                         "type": {"type": "string"}
                     },
                     "required": ["type"],
-                    "type": "object,"
+                    "type": "object"
                 },
                 "source": {
                     "additionalProperties": False,
@@ -890,20 +820,17 @@ channel_packages = {
                         "name": {"type": "null"}
                     },
                     "required": ["type", "name"],
-                    "type": "object,"
-                },
+                    "type": "object"
+                }
             },
             "required": [
                 "id", "type", "urn", "price",
                 "purchaseAt", "expireAt", "ivod", "status",
                 "provider", "period", "adult", "root"
             ],
-            "type": "object",
+            "type": "object"
         },
-        "quality": {
-            "additionalItems": False,
-            "type": "array"
-        },
+        "quality": {"type": ["null", "array"]},
     },
     "required": [
         "id", "type", "urn",
@@ -911,7 +838,7 @@ channel_packages = {
         "description", "offersUrn", "rating",
         "available", "offer", "quality"
     ],
-    "type": "object",
+    "type": "object"
 }
 
 movies = {
@@ -924,10 +851,9 @@ movies = {
         "adult": {
             "additionalProperties": False,
             "properties": {
-                "title": {"type": "string"},
                 "type": {"type": "string"}
             },
-            "required": ["title", "type"],
+            "required": ["type"],
             "type": "object"
         },
         "resources": {
@@ -937,6 +863,7 @@ movies = {
                 "properties": {
                     "id": {"type": "integer"},
                     "type": {"type": "string"},
+                    "drm": {"type": "string"}
                 },
                 "required": ["id", "type"],
                 "type": "object"
@@ -966,8 +893,8 @@ movies = {
             "items": {
                 "additionalProperties": False,
                 "properties": {
-                    "id": {"type": "integer"},
-                    "title": {"type", "string"}
+                    "id": {"type": ["integer", "null"]},
+                    "title": {"type": ["string", "null"]}
                 },
                 "required": ["id", "title"],
                 "type": "object",
@@ -1059,8 +986,8 @@ movies = {
                             "items": {
                                 "additionalProperties": False,
                                 "properties": {
-                                    "id": {"type": "integer"},
-                                    "type": {"type": "string"},
+                                    "id": {"type": ["null", "integer"]},
+                                    "type": {"type": ["null", "string"]},
                                 },
                                 "required": ["id", "type"],
                                 "type": "object"
@@ -1068,8 +995,8 @@ movies = {
                             "type": "array",
                         },
                     },
-                    "required": ["type", "value"],
-                    "type": "object",
+                    "required": ["id", "type", "urn", "resources"],
+                    "type": "object"
                 },
                 "stocks": {
                     "additionalItems": False,
@@ -1121,10 +1048,10 @@ movies = {
                         "properties": {
                             "type": {"type": "string"}
                         },
-                        "reuired": ["type"],
+                        "required": ["type"],
                         "type": "object"
                     },
-                    "type": "array,"
+                    "type": "array"
                 },
                 "store": {
                     "additionalProperties": False,
@@ -1166,7 +1093,7 @@ movies = {
     },
     "required": [
         "id", "type", "urn", "title", "adult", "resources",
-        "releasedAt", "rating", "favorite", "personsUrn", "catrgories", "offersUrn",
+        "releasedAt", "rating", "favorite", "personsUrn", "categories", "offersUrn",
         "available", "offer", "description", "duration", "position", "estimate",
     ],
     "type": "object",
@@ -1182,10 +1109,9 @@ packages = {
         "adult": {
             "additionalProperties": False,
             "properties": {
-                "title": {"type": "string"},
                 "type": {"type": "string"}
             },
-            "required": ["title", "type"],
+            "required": ["type"],
             "type": "object"
         },
         "resources": {
@@ -1202,7 +1128,7 @@ packages = {
             "type": "array"
         },
         "description": {"type": "string"},
-        "offersUrn": {"type": "null"},
+        "offersUrn": {"type": ["string", "null"]},
         "childrenUrn": {"type": "string"},
         "rating": {
             "additionalProperties": False,
@@ -1241,10 +1167,9 @@ subscriptions = {
         "adult": {
             "additionalProperties": False,
             "properties": {
-                "title": {"type": "string"},
                 "type": {"type": "string"}
             },
-            "required": ["title", "type"],
+            "required": ["type"],
             "type": "object"
         },
         "resources": {
@@ -1261,7 +1186,7 @@ subscriptions = {
             "type": "array"
         },
         "description": {"type": "string"},
-        "offersUrn": {"type": "null"},
+        "offersUrn": {"type": ["object", "string"]},
         "childrenUrn": {"type": "string"},
         "rating": {
             "additionalProperties": False,
@@ -1307,8 +1232,8 @@ subscriptions = {
                 "provider": {
                     "additionalProperties": False,
                     "properties": {
-                        "id": {"type", "integer"},
-                        "title": {"type", "string"},
+                        "id": {"type": "integer"},
+                        "title": {"type": "string"},
                         "resources": {
                             "additionalItems": False,
                             "items": {
@@ -1323,8 +1248,8 @@ subscriptions = {
                             "type": ["null", "array"],
                         },
                     },
-                    "required": ["id", "title", "title"],
-                    "type": "object",
+                    "required": ["id", "title"],
+                    "type": "object"
                 },
                 "period": {
                     "additionalProperties": False,
@@ -1415,13 +1340,11 @@ subscriptions = {
                     "items": {
                         "additionalProperties": False,
                         "properties": {
-                            "type": {"type": "string"}
+                            "type": {"type": ["string", "null"]}
                         },
-                        "reuired": ["type"],
+                        "required": ["type"],
                         "type": "object"
-                    },
-                    "required": ["type"],
-                    "type": "array,"
+                    }
                 },
                 "store": {
                     "additionalProperties": False,
@@ -1429,7 +1352,7 @@ subscriptions = {
                         "type": {"type": "string"}
                     },
                     "required": ["type"],
-                    "type": "object,"
+                    "type": "object"
                 },
                 "source": {
                     "additionalProperties": False,
@@ -1438,8 +1361,8 @@ subscriptions = {
                         "name": {"type": "null"}
                     },
                     "required": ["type", "name"],
-                    "type": "object,"
-                },
+                    "type": "object"
+                }
             },
             "required": [
                 "id", "type", "urn", "price",
@@ -1462,16 +1385,15 @@ genres = {
     "additionalProperties": False,
     "properties": {
         "id": {"type": "integer"},
-        "type": {"type", "string"},
+        "type": {"type": "string"},
         "urn": {"type": "string"},
         "title": {"type": "string"},
         "adult": {
             "additionalProperties": False,
             "properties": {
-                "title": {"type": "string"},
                 "type": {"type": "string"}
             },
-            "required": ["title", "type"],
+            "required": ["type"],
             "type": "object"
         },
         "resources": {
@@ -1500,16 +1422,15 @@ serials = {
     "additionalProperties": False,
     "properties": {
         "id": {"type": "integer"},
-        "type": {"type", "string"},
+        "type": {"type": "string"},
         "urn": {"type": "string"},
         "title": {"type": "string"},
         "adult": {
             "additionalProperties": False,
             "properties": {
-                "title": {"type": "string"},
                 "type": {"type": "string"}
             },
-            "required": ["title", "type"],
+            "required": ["type"],
             "type": "object"
         },
         "resources": {
@@ -1537,19 +1458,19 @@ serials = {
         "favorite": {
             "additionalProperties": False,
             "properties": {
-                "type": {"type", "string"}
+                "type": {"type": "string"}
             },
             "required": ["type"],
             "type": "object",
         },
-        "personsUrn": {"type": "string"},
+        "personsUrn": {"type": ["null", "string"]},
         "categories": {
             "additionalItems": False,
             "items": {
                 "additionalProperties": False,
                 "properties": {
-                    "id": {"type": "integer"},
-                    "title": {"type", "string"}
+                    "id": {"type": ["integer", "null"]},
+                    "title": {"type": ["string", "null"]}
                 },
                 "required": ["id", "title"],
                 "type": "object",
@@ -1593,24 +1514,12 @@ serials = {
                 "provider": {
                     "additionalProperties": False,
                     "properties": {
-                        "id": {"type", "integer"},
-                        "title": {"type", "string"},
-                        "resources": {
-                            "additionalItems": False,
-                            "items": {
-                                "additionalProperties": False,
-                                "properties": {
-                                    "id": {"type": "integer"},
-                                    "type": {"type": "string"},
-                                },
-                                "required": ["id", "type"],
-                                "type": "object"
-                            },
-                            "type": ["null", "array"],
-                        },
+                        "id": {"type": "integer"},
+                        "title": {"type": "string"},
+                        "resources": {"type": ["null", "array"]}
                     },
-                    "required": ["id", "title", "title"],
-                    "type": "object",
+                    "required": ["id", "title", "resources"],
+                    "type": "object"
                 },
                 "period": {
                     "additionalProperties": False,
@@ -1701,13 +1610,11 @@ serials = {
                     "items": {
                         "additionalProperties": False,
                         "properties": {
-                            "type": {"type": "string"}
+                            "type": {"type": ["string", "null"]}
                         },
-                        "reuired": ["type"],
+                        "required": ["type"],
                         "type": "object"
-                    },
-                    "required": ["type"],
-                    "type": "array,"
+                    }
                 },
                 "store": {
                     "additionalProperties": False,
@@ -1715,7 +1622,7 @@ serials = {
                         "type": {"type": "string"}
                     },
                     "required": ["type"],
-                    "type": "object,"
+                    "type": "object"
                 },
                 "source": {
                     "additionalProperties": False,
@@ -1724,8 +1631,8 @@ serials = {
                         "name": {"type": "null"}
                     },
                     "required": ["type", "name"],
-                    "type": "object,"
-                },
+                    "type": "object"
+                }
             },
             "required": [
                 "id", "type", "urn", "price",
@@ -1751,18 +1658,16 @@ serials = {
         "id", "type", "urn", "title",
         "adult", "resources", "releasedAt", "rating",
         "favorite", "personsUrn", "categories", "offersUrn",
-        "available", "offer", "description", "seasonsUrn",
-        "continue", "estimate",
+        "available",  # "offer",
+        "description", "seasonsUrn",
+        "continues", "estimate"
     ],
     "type": "object",
 }
 
 mixed = {
-    "additionalProperties": False,
-    "properties": {
-        # Не описывал, пока в items ничего не приходит
-    },
-    "type": "object",
+    "additionalItems": False,
+    "items": {"type": ["array", "null"]}
 }
 
 correct_schema = {
@@ -1777,7 +1682,6 @@ correct_schema = {
                         "additionalProperties": False,
                         "properties": {
                             "items": {
-                                "additionalItems": False,
                                 "items": {
                                     "anyOf": [
                                         channels,
@@ -1787,22 +1691,22 @@ correct_schema = {
                                         packages,
                                         subscriptions,
                                         genres,
-                                        serials
-                                        # mixed - пока ничего не приходит в items
+                                        serials,
+                                        mixed
                                     ]
                                 },
-                                "type": "array",
+                                "type": "array"
                             },
                             "total": {"type": "integer"},
-                            "links": {"additionalItems": False, "type": "array"},
+                            "links": {"type": "array"},
                             "type": {"type": "string"},
                             "urn": {"type": "string"},
-                            "title": "string",
-                            "recommendationId": "string"
+                            "title": {"type": "string"},
+                            "recommendationId": {"type": "string"}
                         },
                         "required": [
                             "items", "total", "links",
-                            "type", "urn", "title", "recommendationId"
+                            "type", "urn", "title"
                         ],
                         "type": "object"
                     },
@@ -1810,7 +1714,7 @@ correct_schema = {
 
                 },
                 "total": {"type": "integer"},
-                "links": {"additionalItems": False, "type": "array"},
+                "links": {"type": "array"},
                 "type": {"type": "string"},
                 "urn": {"type": "string"},
                 "title": {"type": "string"},
@@ -1830,13 +1734,558 @@ correct_schema = {
                 }
             },
             "required": [
-                "showcases", "total", "links",
-                "type", "urn", "title", "references"
+                "showcases",
+                "total",
+                "links",
+                "type",
+                "urn",
+                "title",
+                "references"
             ],
             "type": "object"
         }
     },
-    "required": ["data"],
     "type": "object"
-
 }
+
+# correct_schema_1 = {
+#     "additionalProperties": False,
+#     "properties": {
+#         "data": {
+#             "additionalProperties": False,
+#             "properties": {
+#
+#                 "showcases": {
+#                     "additionalItems": False,
+#                     "items": {
+#                         "additionalProperties": False,
+#                         "properties": {
+#                             "items": {
+#                                 "additionalItems": False,
+#                                 "items": {
+#                                     "additionalProperties": False,
+#                                     "properties": {
+#                                         "additionalProperties": False,
+#                                         "properties": {
+#                                             "id": {"type": "string"},
+#                                             "type": {"type": "string"},
+#                                             "urn": {"type": "string"},
+#                                             "title": {"type": "string"},
+#                                             "adult": {
+#                                                 "additionalProperties": False,
+#                                                 "properties": {
+#                                                     "title": {"type": "string"},
+#                                                     "type": {"type": "string"}
+#                                                 },
+#                                                 "required": ["title", "type"],
+#                                                 "type": "object"
+#                                             },
+#                                             "resources": {
+#                                                 "additionalItems": False,
+#                                                 "items": {
+#                                                     "additionalProperties": False,
+#                                                     "properties": {
+#                                                         "id": {"type": "integer"},
+#                                                         "type": {"type": "string"},
+#                                                         "drm": {"type": "string"},
+#                                                         "evenKey": {"type": "string"},
+#                                                         "oddKey": {"type": "string"},
+#                                                         "source": {"type": "string"}
+#                                                     },
+#                                                     "required": ["id", "type"],
+#                                                     "type": "object"
+#                                                 },
+#                                                 "type": "array"
+#                                             },
+#                                             "description": {"type": "string"},
+#                                             "lcn": {"type": "integer"},
+#                                             "style": {
+#                                                 "additionalProperties": False,
+#                                                 "properties": {
+#                                                     "backgroundColor": {"type": "string"}
+#                                                 },
+#                                                 "required": ["backgroundColor"],
+#                                                 "type": "object"
+#                                             },
+#                                             "offersUrn": "null",
+#                                             "available": {
+#                                                 "additionalProperties": False,
+#                                                 "properties": {
+#                                                     "type": {"type": "string"}
+#                                                 },
+#                                                 "required": ["type"],
+#                                                 "type": "object",
+#
+#                                             },
+#                                             "rating": {
+#                                                 "additionalProperties": False,
+#                                                 "properties": {
+#                                                     "type": {"type": "string"}
+#                                                 },
+#                                                 "required": ["type"],
+#                                                 "type": "object",
+#                                             },
+#                                             "quality": {
+#                                                 "additionalProperties": False,
+#                                                 "properties": {
+#                                                     "type": {"type": "string"}
+#                                                 },
+#                                                 "required": ["type"],
+#                                                 "type": "object,"
+#                                             },
+#                                             "services": {
+#                                                 "additionalItems": False,
+#                                                 "items": {
+#                                                     "additionalProperties": False,
+#                                                     "properties": {
+#                                                         "type": {"type": "string"},
+#                                                         "state": {
+#                                                             "additionalProperties": False,
+#                                                             "properties": {
+#                                                                 "type": {"type": "string"}
+#                                                             },
+#                                                             "required": ["type"],
+#                                                             "type": "object"
+#                                                         }
+#
+#                                                     },
+#                                                     "required": ["type", "state"],
+#                                                     "type": "object"
+#
+#                                                 },
+#                                                 "type": "array",
+#                                             },
+#                                             "schedules": {
+#                                                 "additionalProperties": False,
+#                                                 "properties": {
+#                                                     "showcases": {
+#                                                         "additionalItems": False,
+#                                                         "items": {
+#                                                             "additionalProperties": False,
+#                                                             "properties": {
+#                                                                 "items": {
+#                                                                     "additionalItems": False,
+#                                                                     "items": {
+#                                                                         "additionalProperties": False,
+#                                                                         "properties": {
+#                                                                             "id": {"type": "integer"},
+#                                                                             "type": {"type": "string"},
+#                                                                             "urn": {"type": "string"},
+#                                                                             "startAt": {"type": "string"},
+#                                                                             "endAt": {"type": "string"},
+#                                                                             "position": {"type": "integer"},
+#                                                                             "global": {
+#                                                                                 "additionalProperties": False,
+#                                                                                 "properties": {
+#                                                                                     "id": {"type": "integer"},
+#                                                                                     "title": {"type": "string"},
+#                                                                                     "adult": {
+#                                                                                         "additionalProperties": False,
+#                                                                                         "properties": {
+#                                                                                             "type": {"type": "string"}
+#                                                                                         },
+#                                                                                         "required": ["type"],
+#                                                                                         "type": "object"
+#                                                                                     },
+#                                                                                     "rating": {
+#                                                                                         "additionalProperties": False,
+#                                                                                         "properties": {
+#                                                                                             "type": {"type": "string"}
+#                                                                                         },
+#                                                                                         "required": ["type"],
+#                                                                                         "type": "object"
+#                                                                                     },
+#                                                                                     "locals": {
+#                                                                                         "additionalItems": False,
+#                                                                                         "items": {
+#                                                                                             "additionalProperties": False,
+#                                                                                             "properties": {
+#                                                                                                 "id": {
+#                                                                                                     "type": "integer"},
+#                                                                                                 "title": {
+#                                                                                                     "type": "string"},
+#                                                                                                 "available": {
+#                                                                                                     "additionalProperties": False,
+#                                                                                                     "properties": {
+#                                                                                                         "type": {
+#                                                                                                             "type": "string"}
+#                                                                                                     },
+#                                                                                                     "required": [
+#                                                                                                         "type"],
+#                                                                                                     "type": "object"
+#                                                                                                 },
+#                                                                                                 "quality": {
+#                                                                                                     "additionalProperties": False,
+#                                                                                                     "properties": {
+#                                                                                                         "type": {
+#                                                                                                             "type": "string"}
+#                                                                                                     },
+#                                                                                                     "required": [
+#                                                                                                         "type"],
+#                                                                                                     "type": "object,"
+#                                                                                                 },
+#                                                                                                 "services": {
+#                                                                                                     "additionalItems": False,
+#                                                                                                     "items": {
+#                                                                                                         "additionalProperties": False,
+#                                                                                                         "properties": {
+#                                                                                                             "type": {
+#                                                                                                                 "type": "string"},
+#                                                                                                             "state": {
+#                                                                                                                 "additionalProperties": False,
+#                                                                                                                 "properties": {
+#                                                                                                                     "type": {
+#                                                                                                                         "type": "string"}
+#                                                                                                                 },
+#                                                                                                                 "required": [
+#                                                                                                                     "type"],
+#                                                                                                                 "type": "object"
+#                                                                                                             }
+#                                                                                                         },
+#                                                                                                         "required": [
+#                                                                                                             "type",
+#                                                                                                             "state"],
+#                                                                                                         "type": "object"
+#
+#                                                                                                     },
+#                                                                                                     "type": "array",
+#                                                                                                 },
+#                                                                                                 "resources": {
+#                                                                                                     "additionalItems": False,
+#                                                                                                     "items": {
+#                                                                                                         "additionalProperties": False,
+#                                                                                                         "properties": {
+#                                                                                                             "id": {
+#                                                                                                                 "type": "integer"},
+#                                                                                                             "type": {
+#                                                                                                                 "type": "string"},
+#                                                                                                             "drm": {
+#                                                                                                                 "type": "string"},
+#                                                                                                             "evenKey": {
+#                                                                                                                 "type": "string"},
+#                                                                                                             "oddKey": {
+#                                                                                                                 "type": "string"},
+#                                                                                                             "source": {
+#                                                                                                                 "type": "string"}
+#                                                                                                         },
+#                                                                                                         "required": [
+#                                                                                                             "id",
+#                                                                                                             "type"],
+#                                                                                                         "type": "object"
+#                                                                                                     },
+#                                                                                                     "type": "array"
+#                                                                                                 },
+#                                                                                                 "urn": {
+#                                                                                                     "type": "string"}
+#                                                                                             },
+#                                                                                             "required": [
+#                                                                                                 "id", "title",
+#                                                                                                 "available",
+#                                                                                                 "quality", "services",
+#                                                                                                 "resources", "urn"
+#                                                                                             ],
+#                                                                                             "type": "object"
+#                                                                                         },
+#                                                                                         "type": "array"
+#                                                                                     }
+#                                                                                 },
+#                                                                                 "required": [
+#                                                                                     "id", "title",
+#                                                                                     "adult", "reting", "locals"
+#                                                                                 ],
+#                                                                                 "type": "object",
+#                                                                             },
+#                                                                             "data": {
+#                                                                                 "additionalProperties": False,
+#                                                                                 "properties": {
+#                                                                                     "id": {"type": "integer"},
+#                                                                                     "type": {"type": "string"},
+#                                                                                     "urn": {"type": "string"},
+#                                                                                     "title": {"type": "string"},
+#                                                                                     "adult": {
+#                                                                                         "additionalProperties": False,
+#                                                                                         "properties": {
+#                                                                                             "type": {"type": "string"}},
+#                                                                                         "type": "object",
+#                                                                                     },
+#                                                                                     "resources": {
+#                                                                                         "additionalItems": False,
+#                                                                                         "items": {
+#                                                                                             "additionalProperties": False,
+#                                                                                             "properties": {
+#                                                                                                 "id": {
+#                                                                                                     "type": "integer"},
+#                                                                                                 "type": {
+#                                                                                                     "type": "string"}
+#                                                                                             },
+#                                                                                             "required": ["id", "type"],
+#                                                                                             "type": "object",
+#                                                                                         },
+#                                                                                         "type": "array"
+#                                                                                     },
+#                                                                                     "releasedAt": {"type", "null"},
+#                                                                                     "rating": {
+#                                                                                         "additionalProperties": False,
+#                                                                                         "properties": {
+#                                                                                             "type": {"type", "string"}
+#                                                                                         },
+#                                                                                         "required": ["type"],
+#                                                                                         "type": "object",
+#                                                                                     },
+#                                                                                     "favorite": {
+#                                                                                         "additionalProperties": False,
+#                                                                                         "properties": {
+#                                                                                             "type": {"type", "string"}
+#                                                                                         },
+#                                                                                         "required": ["type"],
+#                                                                                         "type": "object",
+#                                                                                     },
+#                                                                                     "personsUrn": {"type", "string"},
+#                                                                                     "categories": {
+#                                                                                         "additionalItems": False,
+#                                                                                         "items": {
+#                                                                                             "additionalProperties": False,
+#                                                                                             "properties": {
+#                                                                                                 "id": {
+#                                                                                                     "type": "integer"},
+#                                                                                                 "title": {"type",
+#                                                                                                           "string"}
+#                                                                                             },
+#                                                                                             "required": ["id", "title"],
+#                                                                                             "type": "object",
+#                                                                                         },
+#                                                                                         "type": "array",
+#                                                                                     },
+#                                                                                     "description": {"type": "string"},
+#                                                                                     "duration": {"type": "integer"},
+#                                                                                     "episodeNumber": {
+#                                                                                         "type": "integer"},
+#                                                                                     "seasonNumber": {"type": "integer"},
+#                                                                                     # "countries": {
+#                                                                                     #     "additionalItems": False,
+#                                                                                     #     "items": {
+#                                                                                     #         "additionalProperties": False,
+#                                                                                     #         "properties": {
+#                                                                                     #             "id": {"type": "integer"},
+#                                                                                     #             "title": {"type", "string"}
+#                                                                                     #         },
+#                                                                                     #         "required": ["id", "title"],
+#                                                                                     #         "type": "object",
+#                                                                                     #     },
+#                                                                                     #     "type": ["null", "array"],
+#                                                                                     # },
+#                                                                                     "countries": {
+#                                                                                         "additionalItems": False,
+#                                                                                         "type": "array"
+#                                                                                     },
+#                                                                                     "genres": {
+#                                                                                         "additionalItems": False,
+#                                                                                         "items": {
+#                                                                                             "additionalProperties": False,
+#                                                                                             "properties": {
+#                                                                                                 "id": {
+#                                                                                                     "type": "integer"},
+#                                                                                                 "title": {"type",
+#                                                                                                           "string"}
+#                                                                                             },
+#                                                                                             "required": ["id", "title"],
+#                                                                                             "type": "object",
+#                                                                                         },
+#                                                                                         "type": "array",
+#                                                                                     },
+#                                                                                     # "awards": {
+#                                                                                     #     "additionalItems": False,
+#                                                                                     #     "items": {
+#                                                                                     #         "additionalProperties": False,
+#                                                                                     #         "properties": {
+#                                                                                     #             "id": {"type": "integer"},
+#                                                                                     #             "title": {"type", "string"}
+#                                                                                     #         },
+#                                                                                     #         "required": ["id", "title"],
+#                                                                                     #         "type": "object",
+#                                                                                     #     },
+#                                                                                     #     "type": ["null", "array"],
+#                                                                                     # },
+#                                                                                     "awards": {
+#                                                                                         "additionalItems": False,
+#                                                                                         "type": "array"
+#                                                                                     },
+#                                                                                     "estimate": {
+#                                                                                         "additionalProperties": False,
+#                                                                                         "properties": {
+#                                                                                             "type": {"type": "string"}
+#                                                                                         },
+#                                                                                         "required": ["type"],
+#                                                                                         "type": "object",
+#                                                                                     },
+#                                                                                     "vod": {
+#                                                                                         "additionalProperties": False,
+#                                                                                         "properties": {
+#                                                                                             "id": {"type", "integer"},
+#                                                                                             "type": {"type", "null"},
+#                                                                                             "urn": {"type", "null"},
+#                                                                                             "available": {
+#                                                                                                 "additionalProperties": False,
+#                                                                                                 "properties": {
+#                                                                                                     "type": {"type",
+#                                                                                                              "string"}
+#                                                                                                 },
+#                                                                                                 "required": ["type"],
+#                                                                                                 "type": "object",
+#                                                                                             },
+#                                                                                         },
+#                                                                                         "required": [
+#                                                                                             "id", "type",
+#                                                                                             "urn", "available"
+#                                                                                         ],
+#                                                                                         "type": "object",
+#                                                                                     },
+#                                                                                 },
+#                                                                                 "required": [
+#                                                                                     "id", "type", "urn", "title",
+#                                                                                     "adult",
+#                                                                                     "resources", "releasedAt", "rating",
+#                                                                                     "favorite", "personsUrn",
+#                                                                                     "categories", "description",
+#                                                                                     "duration", "episodeNumber",
+#                                                                                     "seasonNumber", "countries",
+#                                                                                     "genres", "awards", "estimate",
+#                                                                                     "vod"
+#                                                                                 ],
+#                                                                                 "type": "object",
+#
+#                                                                             },
+#                                                                             "available": {
+#                                                                                 "additionalProperties": False,
+#                                                                                 "properties": {
+#                                                                                     "type": {"type": "string"}
+#                                                                                 },
+#                                                                                 "required": ["type"],
+#                                                                                 "type": "object",
+#                                                                             },
+#                                                                         },
+#                                                                         "required": [
+#                                                                             "id", "type", "urn",
+#                                                                             "startAt", "endAt", "position",
+#                                                                             "global", "data", "available"
+#                                                                         ],
+#                                                                         "type": "object"
+#                                                                     },
+#                                                                     "type": "array"
+#                                                                 },
+#                                                                 "total": {"type": "integer"},
+#                                                                 "links": {},  # !
+#                                                                 "type": {"type": "string"},
+#                                                                 "urn": {"type": "string"},
+#                                                                 "title": {"type": "string"},
+#                                                                 "recommendationId": {"type": "string"}
+#
+#                                                             },
+#                                                             "required": [
+#                                                                 "items", "total",
+#                                                                 "links", "type",
+#                                                                 "urn", "title", "recommendationId"
+#                                                             ],
+#                                                             "type": "object",
+#                                                         },
+#                                                         "type": "array"
+#
+#                                                     },
+#                                                     "total": {"type": "integer"},
+#                                                     "links": {
+#                                                         "additionalItems": False,
+#                                                         "type": "array"
+#                                                     },
+#                                                     "type": {"type": "string"},
+#                                                     "urn": {"type": "string"},
+#                                                     "title": {"type": "string"},
+#                                                     "references": {
+#                                                         "additionalItems": False,
+#                                                         "items": {
+#                                                             "additionalProperties": False,
+#                                                             "properties": {
+#                                                                 "title": {"type": "string"},
+#                                                                 "urn": {"type": "string"},
+#                                                                 "type": {"type": "string"}
+#                                                             },
+#                                                             "required": ["title", "urn", "type"],
+#                                                             "type": "object"
+#                                                         },
+#                                                         "type": "array"
+#                                                     }
+#                                                 },
+#                                                 "required": [
+#                                                     "showcases", "total",
+#                                                     "links", "type",
+#                                                     "urn", "title", "references"
+#                                                 ],
+#                                                 "type": "object"
+#                                             },
+#                                             "offer": {"type": "null"},
+#                                             "favorite": {
+#                                                 "additionalProperties": False,
+#                                                 "properties": {
+#                                                     "type": {"type": "string"}
+#                                                 },
+#                                                 "required": ["type"],
+#                                                 "type": "object",
+#                                             }
+#                                         },
+#                                         "required": [
+#                                             "id", "type", "urn", "title",
+#                                             "adult", "resources", "description",
+#                                             "lcn", "style", "offersUrn", "available",
+#                                             "rating", "quality", "services", "schedules",
+#                                             "offer", "favorite"
+#                                         ],
+#                                         "type": "object"
+#                                     }
+#                                 },
+#                                 "type": "array"
+#                             },
+#                             "total": {"type": "integer"},
+#                             "links": {"type": "array"},
+#                             "type": {"type": "string"},
+#                             "urn": {"type": "string"},
+#                             "title": {"type": "string"},
+#                             "recommendationId": "string"
+#                         },
+#                         "required": [
+#                             "items", "total", "links",
+#                             "type", "urn", "title"
+#                         ],
+#                         "type": "object"
+#                     },
+#                     "type": "array",
+#
+#                 },
+#                 "total": {"type": "integer"},
+#                 "links": {"type": "array"},
+#                 "type": {"type": "string"},
+#                 "urn": {"type": "string"},
+#                 "title": {"type": "string"},
+#                 "references": {
+#                     "additionalItems": False,
+#                     "items": {
+#                         "additionalProperties": False,
+#                         "properties": {
+#                             "title": {"type": "string"},
+#                             "urn": {"type": "string"},
+#                             "type": {"type": "string"},
+#                         },
+#                         "required": ["title", "urn", "type"],
+#                         "type": "object"
+#                     },
+#                     "type": "array"
+#                 }
+#             },
+#             "required": [
+#                 "showcases", "total", "links",
+#                 "type", "urn", "title", "references"
+#             ],
+#             "type": "object"
+#         }
+#     },
+#     "required": ["data"],
+#     "type": "object"
+# }
